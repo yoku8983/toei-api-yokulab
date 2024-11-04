@@ -1,0 +1,16 @@
+# 環境変数
+venv/
+myenv/
+.env
+
+# Python関係の不要ファイル
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+*.pyo
+
+# バージョン管理に含めたくない設定ファイル
+*.log
+*.out
+*.tmp

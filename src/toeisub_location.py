@@ -9,7 +9,11 @@ from dotenv import load_dotenv
 #load_dotenv()
 
 # Streamlit Webアプリの設定
-st.set_page_config(layout="wide")  # widemodeで表示
+st.set_page_config(
+    layout="wide",                 # widemodeで表示
+    page_title="都営新宿線 走行位置: yklab",  # タブのタイトルを設定
+    page_icon="🚆"                 # タブのアイコンを設定（絵文字やファイルパス）
+)
 
 # Streamlit Webアプリのタイトルを設定
 st.title("都営新宿線  走行位置")
@@ -89,10 +93,11 @@ if response.status_code == 200:
             ])
 
         # データフレームをStreamlitで表形式に表示
-        st.write("公共交通オープンデータセンターのデータセットを利用しています。")
+        st.markdown("公共交通オープンデータセンターのデータセットを利用しています。[Githubリンク](https://github.com/yoku8983/toei-api-yokulab)")
         st.write(styled_df.to_html(), unsafe_allow_html=True)
     else:
         # データが存在しない場合のメッセージを表示
+        st.markdown("公共交通オープンデータセンターのデータセットを利用しています。[Githubリンク](https://github.com/yoku8983/toei-api-yokulab)")
         st.markdown(
             "<p style='font-size:20px; color: maroon;'>現在、在線の列車はありません...</p>",
             unsafe_allow_html=True

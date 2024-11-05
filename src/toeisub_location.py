@@ -70,26 +70,33 @@ if response.status_code == 200:
             })
 
     # フィルタリングされたデータをデータフレームに変換
-    df = pd.DataFrame(filtered_data)
+    if filtered_data:
+        df = pd.DataFrame(filtered_data)
 
-    # 遅延時間がNoneでない行のみを表示
-    df = df.dropna(subset=["遅延時間(分)"])
+        # 遅延時間がNoneでない行のみを表示
+        df = df.dropna(subset=["遅延時間(分)"])
 
-    # 遅延時間が20分以上の場合に色を付けるためのスタイル設定
-    def highlight_delay(val):
-        if isinstance(val, (int, float)) and val >= 20:
-            return "background-color: LightPink; color: Red;"
-        return ""
+        # 遅延時間が20分以上の場合に色を付けるためのスタイル設定
+        def highlight_delay(val):
+            if isinstance(val, (int, float)) and val >= 20:
+                return "background-color: LightPink; color: Red;"
+            return ""
 
-    # タイトル行のスタイルと遅延時間の条件付きスタイルを適用
-    styled_df = df.style.applymap(highlight_delay, subset=["遅延時間(分)"])\
-        .set_table_styles([
-            {'selector': 'thead th', 'props': [('color', 'white'), ('background-color', 'DarkSlateBlue')]}
-        ])
+        # タイトル行のスタイルと遅延時間の条件付きスタイルを適用
+        styled_df = df.style.applymap(highlight_delay, subset=["遅延時間(分)"])\
+            .set_table_styles([
+                {'selector': 'thead th', 'props': [('color', 'white'), ('background-color', 'DarkSlateBlue')]}
+            ])
 
-    # データフレームをStreamlitで表形式に表示
-    st.write("公共交通オープンデータセンターのデータセットを利用しています。")
-    st.write(styled_df.to_html(), unsafe_allow_html=True)
+        # データフレームをStreamlitで表形式に表示
+        st.write("公共交通オープンデータセンターのデータセットを利用しています。")
+        st.write(styled_df.to_html(), unsafe_allow_html=True)
+    else:
+        # データが存在しない場合のメッセージを表示
+        st.markdown(
+            "<p style='font-size:20px; color: maroon;'>現在、在線の列車はありません...</p>",
+            unsafe_allow_html=True
+            )
 
     # フィルタ結果をインデント付きで整形して表示
 #    print("Filtered Data:", json.dumps(filtered_data, indent=2, ensure_ascii=False))

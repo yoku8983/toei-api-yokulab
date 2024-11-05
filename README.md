@@ -1,11 +1,12 @@
 # toei-api-yokulab
 
 ## 概要
-都営新宿線のリアルタイム在線位置情報のAPIを叩き、表形式でWEBブラウザ上で表示できるようにしたアプリです。
-[公共交通オープンデータセンター](https://www.odpt.org/)のAPIを使用しています。
-Azure App Servicesを利用してホスティングしています。FREEプランなのでアクセス量規制あり。
+都営新宿線のリアルタイム在線位置情報のAPIを叩き、表形式でWEBブラウザ上で表示できるようにしたアプリです。<br>
+[公共交通オープンデータセンター](https://www.odpt.org/)のAPIを使用しています。<br>
+<br>
+Azure App Servicesを利用してホスティングしています。FREEプランなのでアクセス量規制あり。<br>
 [https://toei-shinjuku-location-hrdrcwh7ekf7hpbf.canadacentral-01.azurewebsites.net/](https://toei-shinjuku-location-hrdrcwh7ekf7hpbf.canadacentral-01.azurewebsites.net/)
-
+<br>
 ## 表示可能な情報
 終車後など在線がない場合は、その旨が表示されます。
 - **方向**：東行き（本八幡行き）/西行き（新宿行き）
@@ -15,7 +16,13 @@ Azure App Servicesを利用してホスティングしています。FREEプラ�
 - **終着駅**：終点の駅
 - **現在駅**：停車時は停車中の駅、駅間走行中は発車済の駅を表します。
 - **次駅**：駅間走行中は、次の停車駅・通過駅を表します。駅停車中は無表示です。
-- **遅延時分（分）**：何分遅延しているかを表示します。20分以上遅延している列車は、遅延時分のセルが赤背景になります。
+- **遅延時分（分）**：何分遅延しているかを表示します。20分以上遅延している列車は、遅延時分のセルが赤背景になります。<br>
+
+## 実行するには
+- **ローカルマシン**：リポジトリのルートで下記コマンドを実行してください。<br>
+  `streamlit run src/toeisub_location.py`<br>
+- **Azure App Services利用**：「環境変数」でAPIキーを設定したうえで、「設定」＞「構成」＞「全般設定」タブのスタートアップコマンドで下記の通りポート8000を指定してください。<br>
+  `streamlit run src/toeisub_location.py --server.port 8000 --server.address 0.0.0.0`<br>
 
 ## `src/`配下 各コードの解説
 

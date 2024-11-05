@@ -20,19 +20,19 @@ access_token = os.getenv("ODPT_API_KEY")
 
 # 日本語変換用のJSONファイルを読み込む
 ## 駅名
-with open("Station_conv.json", "r", encoding="utf-8") as f:
+with open("src/Station_conv.json", "r", encoding="utf-8") as f:
     trans_station = json.load(f)
 
 ## 路線名、事業者名、方向
-with open("RouteOperatorDirection.json", "r", encoding="utf-8") as f:
+with open("src/RouteOperatorDirection.json", "r", encoding="utf-8") as f:
     trans_dirope = json.load(f)
 
 ## 列車種別
-with open("odpt.json", "r", encoding="utf-8") as f:
+with open("src/odpt.json", "r", encoding="utf-8") as f:
     trans_odpt = json.load(f)
 
 ## 駅名
-with open("stationlist.json", "r", encoding="utf-8") as f:
+with open("src/stationlist.json", "r", encoding="utf-8") as f:
     trans_stalist = json.load(f)
 
 # APIエンドポイントとパラメータ

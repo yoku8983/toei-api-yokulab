@@ -1,0 +1,10 @@
+{
+    "Local": "各停",
+    "Express": "急行",
+    "Rapid": "快速",
+    "LimitedExpress": "特急",
+    "RapidLimitedExpress": "快速特急",
+    "AccessExpress": "アクセス特急",
+    "AirportLimitedExpress": "エアポート快特",
+    "CommuterExpress": "通勤特急"    
+}

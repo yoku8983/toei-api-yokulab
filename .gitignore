@@ -3,6 +3,9 @@ venv/
 myenv/
 .env
 
+# tests配下も公開しない
+tests/
+
 # Python関係の不要ファイル
 __pycache__/
 *.py[cod]

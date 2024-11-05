@@ -1,0 +1,19 @@
+{
+    "Toei": "都営車",
+    "Keio": "京王車",
+    "Keisei": "京成車",
+    "Keikyu": "京急車",
+    "Hokuso": "北総車",
+    "Tokyu": "東急車",
+    "Sotetsu": "相鉄車",
+    "Shinjuku": "新宿線",
+    "Mita": "三田線",
+    "Asakusa": "浅草線",
+    "Oedo": "大江戸線",
+    "Northbound": "北行",
+    "Southbound": "南行",
+    "Eastbound": "東行",
+    "Westbound": "西行",
+    "InnerLoop": "内回り",
+    "OuterLoop": "外回り"
+}

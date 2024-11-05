@@ -6,7 +6,7 @@ import streamlit as st
 from dotenv import load_dotenv
 
 # .envファイルから環境変数をロード
-load_dotenv()
+#load_dotenv()
 
 # Streamlit Webアプリの設定
 st.set_page_config(layout="wide")  # widemodeで表示
@@ -16,6 +16,7 @@ st.title("都営新宿線  走行位置")
 
 # アクセストークンを取得
 access_token = os.getenv("ODPT_API_KEY")
+
 
 # 日本語変換用のJSONファイルを読み込む
 ## 駅名
